@@ -22,6 +22,8 @@ Content of the project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 ├── profile.html             # profile.html by Jacob Seol      
+├── money.html               # money.html by Tonglin Zeng
+├── order.html               # order.html by Reynard Lo
 └── README.md
 
 It has the following subfolders and files:
