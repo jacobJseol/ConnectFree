@@ -41,3 +41,51 @@ function balancesQuery() {
             })
         })
 }
+
+function writeServices() {
+    var servicesRef = db.collection("services");
+    servicesRef.add({
+        code: "1",
+        name: "Teaching you how to fix your laptop",
+        type: "Technical",
+        price: 100,
+        picture: "laptop.jpeg"
+    });
+    servicesRef.add({
+        code: "2",
+        name: "Teaching you how to video edit",
+        type: "Video",
+        price: 200,
+        picture: "video.jpeg"
+    });
+    servicesRef.add({
+        code: "3",
+        name: "Teaching you how to play the guitar",
+        type: "Music",
+        price: 300,
+        picture: "guitar.jpeg"
+    });
+}
+//writeCities();
+
+function servicesQuery(){
+    db.collection("services")
+    //.where("type", "==", "Music")
+    //.limit(2)
+    .orderBy("code")
+    //.orderBy("price")
+    //.orderBy("price", "desc")
+    .get()
+    .then(function(snap){
+        snap.forEach(function(doc){
+            var n = doc.data().name;
+            var p = doc.data().price;
+            var pic = doc.data().picture;
+            console.log(n);
+            var newdom = "<p> " + n + " " + p + " " + pic + "</p>";
+            $("#services-go-here").append(newdom);
+            //document.getElementById("services-go-here").innerHTML = newdom;
+        })
+    })
+}
+//servicesQuery();
