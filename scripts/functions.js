@@ -66,7 +66,7 @@ function writeServices() {
         picture: "guitar.jpeg"
     });
 }
-//writeCities();
+//writeServices();
 
 function servicesQuery(){
     db.collection("services")
@@ -82,7 +82,7 @@ function servicesQuery(){
             var p = doc.data().price;
             var pic = doc.data().picture;
             console.log(n);
-            var newdom = "<p> " + n + " " + p + " " + pic + "</p>";
+            var newdom = "<p>" +  n + " " + "$" + p + " " + pic + "</p>";
             $("#services-go-here").append(newdom);
             //document.getElementById("services-go-here").innerHTML = newdom;
         })
