@@ -2,121 +2,121 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>ConnectFree</title>
-    <meta name="comp1800 boilerplate code" content="ConnectFree">
-    <meta name="author" content="BCIT">
+  <meta charset="utf-8">
+  <title>ConnectFree</title>
+  <meta name="comp1800 boilerplate code" content="ConnectFree">
+  <meta name="author" content="BCIT">
 
-    <!-- Bootstrap for Mobile-first, and JQuery -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <!-- Bootstrap for Mobile-first, and JQuery -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 
 
-    <!-- Optional styles and scripts of your own -->
-    <link href="styles/connectfree.css" rel="stylesheet">
+  <!-- Optional styles and scripts of your own -->
+  <link href="styles/connectfree.css" rel="stylesheet">
 
 
 </head>
 
 <body>
 
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
-    <!-- Header Navigation Bar -->
-    <div class="header">
-        <nav class="navbar fixed-top navbar-light bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="main.html">ConnectFree</a>
-                <a class="signout" href="index.html"><img src="images/outline_logout_black_24dp.png"></a>
-            </div>
-        </nav>
-    </div>
+  <!-------------------------------------->
+  <!-- The following is HTML for layout -->
+  <!-------------------------------------->
+  <!-- Header Navigation Bar -->
+  <div class="header">
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="main.html">ConnectFree</a>
+        <a class="signout" href="index.html"><img src="images/outline_logout_black_24dp.png"></a>
+      </div>
+    </nav>
+  </div>
 
-    <div class="container3">
-        <h1 class="display-4">Let's get you connected, <span id="username"></span></h1>
-        <div class="container text-center py-3">
-            <input type="text" class="form-control" id="searchBar" placeholder="Search for classes">
-            <div class="d-grid gap-2">
-                <button id="search" class="btn btn-primary" type="button">Search</button>
-            </div>
-        </div>
+  <div class="container3">
+    <h1 class="display-4">Welcome, <span id="username"></span> <br /> <span>Take a look at our lessons!</span></h1>
+    <div class="container text-center py-3">
+      <input type="text" class="form-control" id="searchBar" placeholder="Search for classes">
+      <div class="d-grid gap-2">
+        <button id="search" class="btn btn-primary" type="button">Search</button>
+      </div>
     </div>
     <div id="cards-go-here" class="container"></div>
     <div>
-        <h3>Popular classes</h3>       
+      <h3>Popular classes</h3>
     </div>
     <div class="card-group">
-        <div class="card">
-            <img src="images/video.jpg" class="card-img-top" alt="lesson1">
-            <div class="card-body">
-              <h5 class="card-title">Teaching you how to video edit</h5>
-              <p class="card-text">I will teach you professional cinematic video editing</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Hosted by Jeff</small>
-            </div>
-          </div>
-        <div class="card">
-          <img src="images/guitar.jpg" class="card-img-top" alt="lesson2">
-          <div class="card-body">
-            <h5 class="card-title">Teaching you how to play the guitar</h5>
-            <p class="card-text">I will teach you how to play your favourite songs</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Hosted by Garrett</small>
-          </div>
+      <div class="card">
+        <img src="images/video.jpg" class="card-img-top" alt="lesson1">
+        <div class="card-body">
+          <h5 class="card-title">Teaching you how to video edit</h5>
+          <p class="card-text">I will teach you professional cinematic video editing</p>
         </div>
-        <div class="lastCard">
-          <img src="images/laptop.jpg" class="card-img-top" alt="lesson3">
-          <div class="card-body">
-            <h5 class="card-title">Teaching you how to fix your laptop</h5>
-            <p class="card-text">I will teach you how to fix all types of computers</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Hosted by Ali</small>
-          </div>
-        </div>        
+        <div class="card-footer">
+          <small class="text-muted">Hosted by Jeff</small>
+        </div>
       </div>
-
-    <div class="footer">
-        <nav class="navbar fixed-bottom navbar-light bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="main.html"><img src="/images/outline_home_black_24dp.png"></a>
-                <a class="navbar-brand" href="profile.html"><img
-                        src="/images/outline_account_circle_black_24dp.png"></a>
-                <a class="navbar-brand" href="order.html"><img src="/images/outline_shopping_bag_black_24dp.png"></a>
-                <a class="navbar-brand" href="money.html"><img src="/images/outline_paid_black_24dp.png"></a>
-            </div>
-        </nav>
+      <div class="card">
+        <img src="images/guitar.jpg" class="card-img-top" alt="lesson2">
+        <div class="card-body">
+          <h5 class="card-title">Teaching you how to play the guitar</h5>
+          <p class="card-text">I will teach you how to play your favourite songs</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Hosted by Garrett</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/laptop.jpg" class="card-img-top" alt="lesson3">
+        <div class="card-body">
+          <h5 class="card-title">Teaching you how to fix your laptop</h5>
+          <p class="card-text">I will teach you how to fix all types of computers</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Hosted by Ali</small>
+        </div>
+      </div>
     </div>
+  </div>
 
 
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-        </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <div class="footer">
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="main.html"><img src="/images/outline_home_black_24dp.png"></a>
+        <a class="navbar-brand" href="profile.html"><img src="/images/outline_account_circle_black_24dp.png"></a>
+        <a class="navbar-brand" href="order.html"><img src="/images/outline_shopping_bag_black_24dp.png"></a>
+        <!-- <a class="navbar-brand" href="money.html"><img src="/images/outline_paid_black_24dp.png"></a> -->
+      </div>
+    </nav>
+  </div>
 
-    <!-- Link to the api keys for firebase project -->
-    <script src="scripts/firebase_api_connectfree.js"></script>
 
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
-    <script src="scripts/functions.js"></script>
-    <script>
-        sayHello();
-        servicesQuery();
-    </script>
+  <!----------------------------------------------->
+  <!-- JS: Boostrap, Firebase, API related    -->
+  <!----------------------------------------------->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+  <!-- Link to the api keys for firebase project -->
+  <script src="scripts/firebase_api_connectfree.js"></script>
+
+  <!--------------------------------------------------------------------->
+  <!-- JS files: Your own JavaScript functions included here    -->
+  <!--------------------------------------------------------------------->
+  <script src="scripts/functions.js"></script>
+  <script>
+    sayHello();
+    servicesQuery();
+  </script>
 </body>
 
 </html>
