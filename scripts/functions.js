@@ -79,6 +79,39 @@ function writeServices() {
 }
 //writeServices();
 
+function writeLessons() {
+    var lessonsRef = db.collection("lessons");
+    lessonsRef.add({
+        number: "001",
+        name: "Teaching you how to translate English to French",
+        type: "translation",
+        price: 50,
+        picture: "translate.jpg",
+    });
+    lessonsRef.add({
+        number: "002",
+        name: "Teaching you how to design a website",
+        type: "design",
+        price: 100,
+        picture: "web.jpg",
+    });
+    lessonsRef.add({
+        number: "003",
+        name: "Teaching you how to model your business",
+        type: "business",
+        price: 150,
+        picture: "guitar.jpg",
+    });
+    lessonsRef.add({
+        number: "004",
+        name: "Teaching you how to cook",
+        type: "cooking",
+        price: 200,
+        picture: "piano.jpg",
+    });
+}
+//writeLessons();
+
 function servicesQuery() {
     db.collection("services")
         //.where("type", "==", "Music")
@@ -133,3 +166,31 @@ function getSearch() {
     })
 }
 getSearch();
+
+function lessonsQuery(){
+    db.collection("lessons")
+    //.where("population", ">", 1000000)
+    //.where("hemisphere", "==", "south")
+    //.limit(2)
+    //.orderBy("population")
+    //.orderBy("population", "desc")
+    .get()
+    .then(function(snap){
+        snap.forEach(function(doc){
+            var num = doc.data().number;
+            var pic = doc.data().picture;
+            var title = doc.data().name;
+            
+            //console.log(n);
+
+            var newdom = '<div class="card">' + '<div class="card-header">'
+                + '<b>Lesson Number</b>' + num + '</div><div class="card-body">'
+                + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
+                + title + '</div></div>';
+
+            $("#lessons-go-here").append(newdom);
+            //document.getElementById("cities-go-here").innerHTML = newdom;
+        })
+    })
+}
+//lessonsQuery();
