@@ -22,6 +22,7 @@ h1.display-4 {
 .container3 {
     padding-top: 10%;
     text-align: center;
+    background-color: orange;
 }
 
 /* money.html */
@@ -49,5 +50,20 @@ h1.display-4 {
 .footer {
     display: flex;
     justify-items: space-evenly;
+}
+
+#searchBar {
+    margin-bottom: 10px;
+}
+
+.card {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.lastCard {
+    margin-bottom: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 

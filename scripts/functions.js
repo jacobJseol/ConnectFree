@@ -45,47 +45,91 @@ function balancesQuery() {
 function writeServices() {
     var servicesRef = db.collection("services");
     servicesRef.add({
-        code: "1",
+        host: "Ali",
         name: "Teaching you how to fix your laptop",
-        type: "Technical",
+        type: "technical",
         price: 100,
-        picture: "laptop.jpeg"
+        picture: "laptop.jpg",
+        description: "I will teach you how to fix all types of computers"
     });
     servicesRef.add({
-        code: "2",
+        host: "Jeff",
         name: "Teaching you how to video edit",
-        type: "Video",
+        type: "video",
         price: 200,
-        picture: "video.jpeg"
+        picture: "video.jpg",
+        description: "I will teach you professional cinematic video editing"
     });
     servicesRef.add({
-        code: "3",
+        host: "Garrett",
         name: "Teaching you how to play the guitar",
-        type: "Music",
+        type: "music",
         price: 300,
-        picture: "guitar.jpeg"
+        picture: "guitar.jpg",
+        description: "I will teach you how to play your favourite songs"
+    });
+    servicesRef.add({
+        host: "Jason",
+        name: "Teaching you how to play the piano",
+        type: "music",
+        price: 400,
+        picture: "piano.jpg",
+        description: "I will teach you how to compose your own music"
     });
 }
 //writeServices();
 
-function servicesQuery(){
+function servicesQuery() {
     db.collection("services")
-    //.where("type", "==", "Music")
-    //.limit(2)
-    .orderBy("code")
-    //.orderBy("price")
-    //.orderBy("price", "desc")
-    .get()
-    .then(function(snap){
-        snap.forEach(function(doc){
-            var n = doc.data().name;
-            var p = doc.data().price;
-            var pic = doc.data().picture;
-            console.log(n);
-            var newdom = "<p>" +  n + " " + "$" + p + " " + pic + "</p>";
-            $("#services-go-here").append(newdom);
-            //document.getElementById("services-go-here").innerHTML = newdom;
+        //.where("type", "==", "Music")
+        //.limit(2)
+        .orderBy("code")
+        //.orderBy("price")
+        //.orderBy("price", "desc")
+        .get()
+        .then(function (snap) {
+            snap.forEach(function (doc) {
+                var n = doc.data().name;
+                var p = doc.data().price;
+                var pic = doc.data().picture;
+                console.log(n);
+                var newdom = "<p> " + n + " " + p + " " + pic + "</p>";
+                $("#services-go-here").append(newdom);
+                //document.getElementById("services-go-here").innerHTML = newdom;
+            })
         })
-    })
 }
 //servicesQuery();
+
+function getSearch() {
+    document.getElementById("search").addEventListener('click', function () {
+        var service = document.getElementById("searchBar").value;
+        console.log(service);
+
+        //read services collection from firestore, with query
+        db.collection("services")
+            .where("type", "==", service)
+            .get()
+            .then(function (snap) {
+                snap.forEach(function (doc) {
+                    console.log(doc.data());
+                    var title = doc.data().name;    //key "name"
+                    var pic = doc.data().picture;   //key "picture"
+                    var desc = doc.data().description;
+                    var person = doc.data().host;
+
+                    // construct the string for card
+                    var codestring = '<div class="card">' +
+                        '<img src="images/' + pic + '" class="card-img-top">' +
+                        '<div class="card-body">' +
+                        '<h5 class="card-title">' + title + '</h5>' +
+                        '<p class="card-text">' + desc + '</p>' +
+                        '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
+                        '</div>';
+                    // append with jquery to DOM
+                    $("#cards-go-here").append(codestring);
+                })
+            })
+    })
+}
+getSearch();

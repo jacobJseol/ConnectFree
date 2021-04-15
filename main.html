@@ -30,14 +30,56 @@
         <nav class="navbar fixed-top navbar-light bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="main.html">ConnectFree</a>
+                <a class="signout" href="index.html"><img src="images/outline_logout_black_24dp.png"></a>
             </div>
         </nav>
     </div>
 
     <div class="container3">
         <h1 class="display-4">Let's get you connected, <span id="username"></span></h1>
-        <div id="services-go-here"></div>
+        <div class="container text-center py-3">
+            <input type="text" class="form-control" id="searchBar" placeholder="Search for classes">
+            <div class="d-grid gap-2">
+                <button id="search" class="btn btn-primary" type="button">Search</button>
+            </div>
+        </div>
     </div>
+    <div id="cards-go-here" class="container"></div>
+    <div>
+        <h3>Popular classes</h3>       
+    </div>
+    <div class="card-group">
+        <div class="card">
+            <img src="images/video.jpg" class="card-img-top" alt="lesson1">
+            <div class="card-body">
+              <h5 class="card-title">Teaching you how to video edit</h5>
+              <p class="card-text">I will teach you professional cinematic video editing</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Hosted by Jeff</small>
+            </div>
+          </div>
+        <div class="card">
+          <img src="images/guitar.jpg" class="card-img-top" alt="lesson2">
+          <div class="card-body">
+            <h5 class="card-title">Teaching you how to play the guitar</h5>
+            <p class="card-text">I will teach you how to play your favourite songs</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Hosted by Garrett</small>
+          </div>
+        </div>
+        <div class="lastCard">
+          <img src="images/laptop.jpg" class="card-img-top" alt="lesson3">
+          <div class="card-body">
+            <h5 class="card-title">Teaching you how to fix your laptop</h5>
+            <p class="card-text">I will teach you how to fix all types of computers</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Hosted by Ali</small>
+          </div>
+        </div>        
+      </div>
 
     <div class="footer">
         <nav class="navbar fixed-bottom navbar-light bg-primary">
@@ -57,7 +99,7 @@
     <!----------------------------------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
