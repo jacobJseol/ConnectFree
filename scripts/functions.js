@@ -119,7 +119,7 @@ function getSearch() {
                     var person = doc.data().host;
 
                     // construct the string for card
-                    var codestring = '<div class="card">' +
+                    var codestring = '<br />' + '<div class="card">' +
                         '<img src="images/' + pic + '" class="card-img-top">' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + title + '</h5>' +
@@ -127,7 +127,7 @@ function getSearch() {
                         '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
                         '</div>';
                     // append with jquery to DOM
-                    $("#cards-go-here").append(codestring);
+                    $("#cards-go-here").prepend(codestring);
                 })
             })
     })
