@@ -26,7 +26,6 @@ function writeServices() {
         host: "Ali",
         name: "Teaching you how to fix your laptop",
         type: "technical",
-        price: 100,
         picture: "laptop.jpg",
         description: "I will teach you how to fix all types of computers"
     });
@@ -34,7 +33,6 @@ function writeServices() {
         host: "Jeff",
         name: "Teaching you how to video edit",
         type: "video",
-        price: 200,
         picture: "video.jpg",
         description: "I will teach you professional cinematic video editing"
     });
@@ -42,7 +40,6 @@ function writeServices() {
         host: "Garrett",
         name: "Teaching you how to play the guitar",
         type: "music",
-        price: 300,
         picture: "guitar.jpg",
         description: "I will teach you how to play your favourite songs"
     });
@@ -50,7 +47,6 @@ function writeServices() {
         host: "Jason",
         name: "Teaching you how to play the piano",
         type: "music",
-        price: 400,
         picture: "piano.jpg",
         description: "I will teach you how to compose your own music"
     });
@@ -59,23 +55,27 @@ function writeServices() {
 
 function servicesQuery() {
     db.collection("services")
-        //.where("type", "==", "Music")
-        //.limit(2)
-        .orderBy("code")
-        //.orderBy("price")
-        //.orderBy("price", "desc")
-        .get()
-        .then(function (snap) {
-            snap.forEach(function (doc) {
-                var n = doc.data().name;
-                var p = doc.data().price;
-                var pic = doc.data().picture;
-                console.log(n);
-                var newdom = "<p> " + n + " " + p + " " + pic + "</p>";
-                $("#services-go-here").append(newdom);
-                //document.getElementById("services-go-here").innerHTML = newdom;
+            .get()
+            .then(function (snap) {
+                snap.forEach(function (doc) {
+                    console.log(doc.data());
+                    var title = doc.data().name;    //key "name"
+                    var pic = doc.data().picture;   //key "picture"
+                    var desc = doc.data().description;
+                    var person = doc.data().host;
+
+                    // construct the string for card
+                    var codestring = '<br />' + '<div class="card">' +
+                        '<img src="images/' + pic + '" class="card-img-top">' +
+                        '<div class="card-body">' +
+                        '<h5 class="card-title">' + title + '</h5>' +
+                        '<p class="card-text">' + desc + '</p>' +
+                        '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
+                        '</div>';
+                    // append with jquery to DOM
+                    $("#services-go-here").prepend(codestring);
+                })
             })
-        })
 }
 //servicesQuery();
 
