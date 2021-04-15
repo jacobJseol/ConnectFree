@@ -143,7 +143,7 @@ function getSearch() {
             })
     })
 }
-getSearch();
+//getSearch();
 
 function getLessons() {
         db.collection("lessons")
