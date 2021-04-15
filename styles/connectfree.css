@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("../images/macbook.png");
 }
 
 .button1 {
@@ -11,7 +12,10 @@
 
 /* login.html */
 .container2 {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/macbook.png");
 }
 
 h1.display-4 {
@@ -20,9 +24,10 @@ h1.display-4 {
 
 /* main.html */
 .container3 {
-    padding-top: 10%;
+    padding-top: 15%;
+    padding-bottom: 15%;
     text-align: center;
-    background-color: orange;
+    background-color: green;
 }
 
 /* money.html */
@@ -57,12 +62,6 @@ h1.display-4 {
 }
 
 .card {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-.lastCard {
-    margin-bottom: 50px;
     margin-left: 15%;
     margin-right: 15%;
 }

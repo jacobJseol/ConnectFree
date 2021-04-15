@@ -152,45 +152,42 @@ function getSearch() {
                     var person = doc.data().host;
 
                     // construct the string for card
-                    var codestring = '<div class="card">' +
+                    var codestring = '<br />' + '<div class="card">' +
                         '<img src="images/' + pic + '" class="card-img-top">' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + title + '</h5>' +
                         '<p class="card-text">' + desc + '</p>' +
-                        '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
+                        '<p class="card-text"><small class="text-muted">Hosted by ' + person + '</small></p>' +
                         '</div>';
                     // append with jquery to DOM
-                    $("#cards-go-here").append(codestring);
+                    $("#cards-go-here").prepend(codestring);
                 })
             })
     })
 }
 getSearch();
 
-function lessonsQuery(){
-    db.collection("lessons")
-    //.where("population", ">", 1000000)
-    //.where("hemisphere", "==", "south")
-    //.limit(2)
-    //.orderBy("population")
-    //.orderBy("population", "desc")
-    .get()
-    .then(function(snap){
-        snap.forEach(function(doc){
-            var num = doc.data().number;
-            var pic = doc.data().picture;
-            var title = doc.data().name;
-            
-            //console.log(n);
+function getLessons() {
+        db.collection("lessons")
+            //.limit(2)
+            //.orderBy("price")
+            //.orderBy("price", "desc")
+            .get()
+            .then(function (snap) {
+                snap.forEach(function (doc) {
+                    var num = doc.data().number;
+                    var pic = doc.data().picture;
+                    var title = doc.data().name;
 
-            var newdom = '<div class="card">' + '<div class="card-header">'
-                + '<b>Lesson Number</b>' + num + '</div><div class="card-body">'
-                + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
-                + title + '</div></div>';
+                    var newdom = '<div class="card">' + '<div class="card-header">'
+                        + '<b>Lesson Number</b>' + num + '</div><div class="card-body">'
+                        + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
+                        + title + '</div>';
 
-            $("#lessons-go-here").append(newdom);
-            //document.getElementById("cities-go-here").innerHTML = newdom;
-        })
+                    $("#lessons-go-here").prepend(newdom);
+                    
+                })
+            })
     })
 }
-//lessonsQuery();
+getLessons();
