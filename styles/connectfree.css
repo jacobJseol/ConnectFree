@@ -30,31 +30,8 @@ h1.display-4 {
     background-color: green;
 }
 
-/* money.html */
-.container4 {
-    padding-top: 25%;
-}
-
-/* order.html */
-.container5 {
-    padding-top: 10%;
-    text-align: center;
-}
-
-/* profile.html */
-.container6 {
-    padding-top: 10%;
-    text-align: center;
-}
-
-/* Generic */
-.header {
-    font-weight: 600;
-}
-
-.footer {
-    display: flex;
-    justify-items: space-evenly;
+.display-4 {
+    font-weight: 400;
 }
 
 #searchBar {
@@ -66,3 +43,26 @@ h1.display-4 {
     margin-right: 15%;
 }
 
+/* order.html */
+.container5 {
+    padding-top: 10%;
+    text-align: center;
+}
+
+/* profile.html */
+.container6 {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    text-align: center;
+    background-color: green;
+}
+
+/* Generic */
+.header {
+    font-weight: 600;
+}
+
+.footer {
+    display: flex;
+    justify-items: space-evenly;
+}

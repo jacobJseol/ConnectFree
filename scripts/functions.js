@@ -20,28 +20,6 @@ function sayHello() {
     });
 }
 
-function writeBalances() {
-    var balancesRef = db.collection("balances");
-    balancesRef.add({
-        balance: 100.00
-    });
-}
-//writeBalances();
-
-function balancesQuery() {
-    db.collection("balances")
-        .get()
-        .then(function (snap) {
-            snap.forEach(function (doc) {
-                var n = doc.data().balance;
-                console.log(n);
-                var newdom = "<p>" + "$" + n + "</p>";
-                $("#balances-goes-here").append(newdom);
-                //document.getElementById("cities-go-here").innerHTML = newdom;
-            })
-        })
-}
-
 function writeServices() {
     var servicesRef = db.collection("services");
     servicesRef.add({
@@ -132,4 +110,4 @@ function getSearch() {
             })
     })
 }
-getSearch();
+//getSearch();
