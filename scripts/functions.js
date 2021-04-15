@@ -166,6 +166,6 @@ function getLessons() {
                     
                 })
             })
-    })
-}
-getLessons();
+    }
+
+//getLessons();
