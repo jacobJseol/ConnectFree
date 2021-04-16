@@ -31,23 +31,18 @@
         </nav>
     </div>
 
-    <div class="container6">
+    <div class="container7">
         <h1 class="display-4"><span id="username"></span></h1>
 
-        <form id="form">
-            <div id="profile" class="mb-3">
-              <label for="about" class="form-label">About Me</label>
-              <input type="text" class="form-control" id="about" placeholder="Tell us about yourself.">
-              <div id="aboutHelp" class="form-text">Enter some details about yourself.</div>
-            </div>
-            <div class="mb-3">
-              <label for="your-services" class="form-label">My Services</label>
-              <input type="text" class="form-control" id="your-services" placeholder="Tell us about your services.">
-              <div id="servicesHelp" class="form-text">Enter some details about what you have to offer.</div>
-            </div>
-            <button id="submission" class="btn btn-primary" type="button">Submit</button>
-            <button onclick="window.location.href='newprofile.html'" class="btn btn-primary" type="button">Return</button>
-          </form>
+        <p class="detail-header">About Me</p>
+        <div id="about-goes-here"></div>
+        <!-- About Me details are entered here through JavaScript -->
+
+        <p class="detail-header">My Services</p>
+        <div id="service-goes-here"></div>
+        <!-- My Services details are entered here through JavaScript -->
+
+        
 
         <!-- Breaks to cover container -->
         </br></br></br></br></br>
@@ -87,7 +82,7 @@
 
     <script>
         sayHello();
-        submit();
+        getDetails();
     </script>
 </body>
 

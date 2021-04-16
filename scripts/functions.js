@@ -135,62 +135,63 @@ function submit() {
                         usersRef.set({
                             about: aboutMe,
                             mystuff: myServices
-                        }, {merge: true
+                        }, {
+                            merge: true
                         })
                     })
             } else {
                 // No user is signed in.
             }
         });
-
     })
 }
 //submit();
 
-function getLessons() {
-    db.collection("lessons")
-        //.limit(2)
-        //.orderBy("price")
-        //.orderBy("price", "desc")
+function getServices() {
+    db.collection("services")
+        .orderBy("num", "desc")
         .get()
         .then(function (snap) {
             snap.forEach(function (doc) {
-                var num = doc.data().number;
+                var n = doc.data().num;
                 var pic = doc.data().picture;
                 var title = doc.data().name;
 
-                var newdom = '<div class="card">' + '<div class="card-header">' +
-                    '<b>Lesson Number</b>' + num + '</div><div class="card-body">' +
+                var newdom = '<br />' + '<div class="card">' + '<div class="card-header">' +
+                    '<b>Lesson Number</b> ' + n + '</div><div class="card-body">' +
                     '<img src="images/' + pic + '"alt="..." class="img-thumbnail">' +
-                    title + '</div>';
+                    '<div>' + title + '</div>' + '</div>';
 
-                $("#lessons-go-here").prepend(newdom);
+
+
+                $("#services-go-here").prepend(newdom);
 
             })
         })
 }
-//getLessons();
-function getServices() {
-        db.collection("services")
-            .orderBy("num", "desc")
-            .get()
-            .then(function (snap) {
-                snap.forEach(function (doc) {
-                    var n = doc.data().num;
-                    var pic = doc.data().picture;
-                    var title = doc.data().name;
-
-                    var newdom = '<div class="card">' + '<div class="card-header">'
-                        + '<b>Lesson Number</b> ' + n + '</div><div class="card-body">'
-                        + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
-                        + title + '</div>';
-                    
-                    
-
-                    $("#services-go-here").prepend(newdom);
-                    
-                })
-            })
-    }
 //getServices();
 
+function getDetails() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            // Do something for the user here. 
+            console.log(user.uid);
+            db.collection("users").doc(user.uid)
+                .get()
+                .then(function (doc) {
+                    var about = doc.data().about;
+                    var services = doc.data().mystuff;
+                    var newdom1 = '<div>' + '<p>' + about + '</p>' + '</div>';
+                    var newdom2 = '<div>' + '<p>' + services + '</p>' + '</div>';
+
+                $("#about-goes-here").prepend(newdom1);
+                $("#service-goes-here").prepend(newdom2);
+                })
+        } else {
+            // No user is signed in.
+        }
+    });
+        
+}
+//getServices();

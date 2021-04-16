@@ -23,6 +23,7 @@ Content of the project folder:
 ├── index.html               # landing HTML file, this is what users see when you come to url
 ├── login.html               # login.html, to allow users to log in to ConnectFree
 ├── main.html                # main.html, welcomes users and displays a list of classes
+├── newprofile.html          # Updated version of profile.html with user data
 ├── order.html               # order.html by Reynard Lo
 ├── profile.html             # profile.html by Jacob Seol      
 └── README.md
