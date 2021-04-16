@@ -53,39 +53,6 @@ function writeServices() {
 }
 //writeServices();
 
-function writeLessons() {
-    var lessonsRef = db.collection("lessons");
-    lessonsRef.add({
-        number: "001",
-        name: "Teaching you how to translate English to French",
-        type: "translation",
-        price: 50,
-        picture: "translate.jpg",
-    });
-    lessonsRef.add({
-        number: "002",
-        name: "Teaching you how to design a website",
-        type: "design",
-        price: 100,
-        picture: "web.jpg",
-    });
-    lessonsRef.add({
-        number: "003",
-        name: "Teaching you how to model your business",
-        type: "business",
-        price: 150,
-        picture: "guitar.jpg",
-    });
-    lessonsRef.add({
-        number: "004",
-        name: "Teaching you how to cook",
-        type: "cooking",
-        price: 200,
-        picture: "piano.jpg",
-    });
-}
-//writeLessons();
-
 function servicesQuery() {
     db.collection("services")
             .get()
@@ -101,10 +68,10 @@ function servicesQuery() {
                     var codestring = '<br />' + '<div class="card">' +
                         '<img src="images/' + pic + '" class="card-img-top">' +
                         '<div class="card-body">' +
-                        '<h5 class="card-title">' + title + '</h5>' +
+                        '<h5 id="product" class="card-title">' + title + '</h5>' +
                         '<p class="card-text">' + desc + '</p>' +
                         '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
-                        '</div>';
+                        '<button id="adding" class="btn btn-primary" type="button">Search</button>' + '</div>';
                     // append with jquery to DOM
                     $("#services-go-here").prepend(codestring);
                 })
@@ -145,27 +112,37 @@ function getSearch() {
 }
 getSearch();
 
-function getLessons() {
-        db.collection("lessons")
+function getServices() {
+        db.collection("services")
             //.limit(2)
             //.orderBy("price")
             //.orderBy("price", "desc")
             .get()
             .then(function (snap) {
                 snap.forEach(function (doc) {
-                    var num = doc.data().number;
+                    //var num = doc.data().host;
                     var pic = doc.data().picture;
                     var title = doc.data().name;
 
+                    for (let i = 1; i <= 4; i++) {
                     var newdom = '<div class="card">' + '<div class="card-header">'
-                        + '<b>Lesson Number</b>' + num + '</div><div class="card-body">'
+                        + '<b>Lesson Number</b>' + i + '</div><div class="card-body">'
                         + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
                         + title + '</div>';
+                    }
+                    
 
-                    $("#lessons-go-here").prepend(newdom);
+                    $("#services-go-here").prepend(newdom);
                     
                 })
             })
     }
+//getServices();
 
-//getLessons();
+function addCartListener() {
+    document.getElementById(adding).addEventListener("click", function () {
+        var value = document.getElementById("product").value;
+        console.log("adding " + value + "to cart");
+    })
+}
+//addCartListener();
