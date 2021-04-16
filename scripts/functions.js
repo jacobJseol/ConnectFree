@@ -68,7 +68,6 @@ function servicesQuery() {
                 var desc = doc.data().description;
                 var person = doc.data().host;
 
-<<<<<<< HEAD
                 // construct the string for card
                 var codestring = '<br />' + '<div class="card">' +
                     '<img src="images/' + pic + '" class="card-img-top">' +
@@ -79,19 +78,6 @@ function servicesQuery() {
                     '</div>';
                 // append with jquery to DOM
                 $("#services-go-here").prepend(codestring);
-=======
-                    // construct the string for card
-                    var codestring = '<br />' + '<div class="card">' +
-                        '<img src="images/' + pic + '" class="card-img-top">' +
-                        '<div class="card-body">' +
-                        '<h5 id="product" class="card-title">' + title + '</h5>' +
-                        '<p class="card-text">' + desc + '</p>' +
-                        '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
-                        '</div>';
-                    // append with jquery to DOM
-                    $("#services-go-here").prepend(codestring);
-                })
->>>>>>> b9e3c09f1fec9608379574c8ef984a5e11f65fba
             })
         })
 }
@@ -130,7 +116,6 @@ function getSearch() {
 }
 //getSearch();
 
-<<<<<<< HEAD
 function submit() {
     document.getElementById("submission").addEventListener('click', function () {
         var aboutMe = document.getElementById("about").value;
@@ -185,7 +170,6 @@ function getLessons() {
         })
 }
 //getLessons();
-=======
 function getServices() {
         db.collection("services")
             .orderBy("num", "desc")
@@ -210,4 +194,3 @@ function getServices() {
     }
 //getServices();
 
->>>>>>> b9e3c09f1fec9608379574c8ef984a5e11f65fba
