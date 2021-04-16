@@ -75,7 +75,7 @@ function servicesQuery() {
                         '<h5 id="product" class="card-title">' + title + '</h5>' +
                         '<p class="card-text">' + desc + '</p>' +
                         '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
-                        '<button id="adding" class="btn btn-primary" type="button">Search</button>' + '</div>';
+                        '</div>';
                     // append with jquery to DOM
                     $("#services-go-here").prepend(codestring);
                 })
