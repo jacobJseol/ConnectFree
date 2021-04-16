@@ -55,11 +55,17 @@ h1.display-4 {
 .container6 {
     padding-top: 15%;
     padding-bottom: 25%;
+    padding-left: 5%;
+    padding-right: 5%;
     text-align: center;
     background-color: green;
 }
 
-input[type="text"]#exampleInputEmail1 {
+input[type="text"]#about {
+    height: 150px;
+}
+
+input[type="text"]#your-services {
     height: 150px;
 }
 
@@ -68,7 +74,11 @@ label {
     font-weight: 600;
 }
 
-#emailHelp {
+#aboutHelp {
+    color: wheat;
+}
+
+#servicesHelp {
     color: wheat;
 }
 
