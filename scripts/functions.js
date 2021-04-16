@@ -44,7 +44,8 @@ function writeServices() {
         name: "Teaching you how to play the guitar",
         type: "music",
         picture: "guitar.jpg",
-        description: "I will teach you how to play your favourite songs"
+        description: "I will teach you how to play your favourite songs",
+        selected: "Yes"
     });
     servicesRef.add({
         num: 4,
@@ -52,7 +53,8 @@ function writeServices() {
         name: "Teaching you how to play the piano",
         type: "music",
         picture: "piano.jpg",
-        description: "I will teach you how to compose your own music"
+        description: "I will teach you how to compose your own music",
+        selected: "Yes"
     });
 }
 //writeServices();
@@ -75,9 +77,16 @@ function servicesQuery() {
                     '<h5 class="card-title">' + title + '</h5>' +
                     '<p class="card-text">' + desc + '</p>' +
                     '<p class="card-text"><small class="text-muted">Hosted by ' + person + '</small></p>' +
-                    '</div>';
+                    '<button id="select" class="btn btn-primary" type="button">Select</button>' + '</div>';
                 // append with jquery to DOM
                 $("#services-go-here").prepend(codestring);
+
+                document.getElementById("select").addEventListener('click', function () {
+                    console.log("Selected.");
+
+                    //writeServices();
+                })
+
             })
         })
 }
@@ -107,14 +116,45 @@ function getSearch() {
                         '<h5 class="card-title">' + title + '</h5>' +
                         '<p class="card-text">' + desc + '</p>' +
                         '<p class="card-text"><small class="text-muted">Hosted by ' + person + '</small></p>' +
-                        '</div>';
+                        '<button id="select" class="btn btn-primary" type="button">Select</button>' + '</div>';
                     // append with jquery to DOM
                     $("#cards-go-here").prepend(codestring);
+
+                    document.getElementById("select").addEventListener('click', function () {
+                        console.log("Selected.");
+
+                        //writeServices();
+
+                    })
                 })
             })
     })
 }
 //getSearch();
+
+function getServices() {
+    db.collection("services")
+        .where("selected", "==", "Yes")
+        .get()
+        .then(function (snap) {
+            snap.forEach(function (doc) {
+                var n = doc.data().num;
+                var pic = doc.data().picture;
+                var title = doc.data().name;
+
+                var newdom = '<br />' + '<div class="card">' + '<div class="card-header">' +
+                    '<b>Lesson Number</b> ' + n + '</div><div class="card-body">' +
+                    '<img src="images/' + pic + '"alt="..." class="img-thumbnail">' +
+                    '<div>' + title + '</div>' + '</div>';
+
+
+
+                $("#selected-goes-here").prepend(newdom);
+
+            })
+        })
+}
+//getServices();
 
 function submit() {
     document.getElementById("submission").addEventListener('click', function () {
@@ -147,30 +187,6 @@ function submit() {
 }
 //submit();
 
-function getServices() {
-    db.collection("services")
-        .orderBy("num", "desc")
-        .get()
-        .then(function (snap) {
-            snap.forEach(function (doc) {
-                var n = doc.data().num;
-                var pic = doc.data().picture;
-                var title = doc.data().name;
-
-                var newdom = '<br />' + '<div class="card">' + '<div class="card-header">' +
-                    '<b>Lesson Number</b> ' + n + '</div><div class="card-body">' +
-                    '<img src="images/' + pic + '"alt="..." class="img-thumbnail">' +
-                    '<div>' + title + '</div>' + '</div>';
-
-
-
-                $("#services-go-here").prepend(newdom);
-
-            })
-        })
-}
-//getServices();
-
 function getDetails() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -185,13 +201,13 @@ function getDetails() {
                     var newdom1 = '<div>' + '<p>' + about + '</p>' + '</div>';
                     var newdom2 = '<div>' + '<p>' + services + '</p>' + '</div>';
 
-                $("#about-goes-here").prepend(newdom1);
-                $("#service-goes-here").prepend(newdom2);
+                    $("#about-goes-here").prepend(newdom1);
+                    $("#service-goes-here").prepend(newdom2);
                 })
         } else {
             // No user is signed in.
         }
     });
-        
+
 }
 //getServices();
