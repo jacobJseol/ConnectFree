@@ -23,6 +23,7 @@ function sayHello() {
 function writeServices() {
     var servicesRef = db.collection("services");
     servicesRef.add({
+        num: 1,
         host: "Ali",
         name: "Teaching you how to fix your laptop",
         type: "technical",
@@ -30,6 +31,7 @@ function writeServices() {
         description: "I will teach you how to fix all types of computers"
     });
     servicesRef.add({
+        num: 2,
         host: "Jeff",
         name: "Teaching you how to video edit",
         type: "video",
@@ -37,6 +39,7 @@ function writeServices() {
         description: "I will teach you professional cinematic video editing"
     });
     servicesRef.add({
+        num: 3,
         host: "Garrett",
         name: "Teaching you how to play the guitar",
         type: "music",
@@ -44,6 +47,7 @@ function writeServices() {
         description: "I will teach you how to play your favourite songs"
     });
     servicesRef.add({
+        num: 4,
         host: "Jason",
         name: "Teaching you how to play the piano",
         type: "music",
@@ -114,22 +118,19 @@ function getSearch() {
 
 function getServices() {
         db.collection("services")
-            //.limit(2)
-            //.orderBy("price")
-            //.orderBy("price", "desc")
+            .orderBy("num", "desc")
             .get()
             .then(function (snap) {
                 snap.forEach(function (doc) {
-                    //var num = doc.data().host;
+                    var n = doc.data().num;
                     var pic = doc.data().picture;
                     var title = doc.data().name;
 
-                    for (let i = 1; i <= 4; i++) {
                     var newdom = '<div class="card">' + '<div class="card-header">'
-                        + '<b>Lesson Number</b>' + i + '</div><div class="card-body">'
+                        + '<b>Lesson Number</b> ' + n + '</div><div class="card-body">'
                         + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
                         + title + '</div>';
-                    }
+                    
                     
 
                     $("#services-go-here").prepend(newdom);
@@ -139,10 +140,3 @@ function getServices() {
     }
 //getServices();
 
-function addCartListener() {
-    document.getElementById(adding).addEventListener("click", function () {
-        var value = document.getElementById("product").value;
-        console.log("adding " + value + "to cart");
-    })
-}
-//addCartListener();

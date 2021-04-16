@@ -81,3 +81,13 @@ label {
     display: flex;
     justify-items: space-evenly;
 }
+
+.dropdown {
+    margin-right: 50px;
+}
+
+.img-thumbnail {
+    height: 100px;
+    width: 100px;
+}
+
