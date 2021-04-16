@@ -23,6 +23,7 @@ function sayHello() {
 function writeServices() {
     var servicesRef = db.collection("services");
     servicesRef.add({
+        num: 1,
         host: "Ali",
         name: "Teaching you how to fix your laptop",
         type: "technical",
@@ -30,6 +31,7 @@ function writeServices() {
         description: "I will teach you how to fix all types of computers"
     });
     servicesRef.add({
+        num: 2,
         host: "Jeff",
         name: "Teaching you how to video edit",
         type: "video",
@@ -37,6 +39,7 @@ function writeServices() {
         description: "I will teach you professional cinematic video editing"
     });
     servicesRef.add({
+        num: 3,
         host: "Garrett",
         name: "Teaching you how to play the guitar",
         type: "music",
@@ -44,6 +47,7 @@ function writeServices() {
         description: "I will teach you how to play your favourite songs"
     });
     servicesRef.add({
+        num: 4,
         host: "Jason",
         name: "Teaching you how to play the piano",
         type: "music",
@@ -52,39 +56,6 @@ function writeServices() {
     });
 }
 //writeServices();
-
-function writeLessons() {
-    var lessonsRef = db.collection("lessons");
-    lessonsRef.add({
-        number: "001",
-        name: "Teaching you how to translate English to French",
-        type: "translation",
-        price: 50,
-        picture: "translate.jpg",
-    });
-    lessonsRef.add({
-        number: "002",
-        name: "Teaching you how to design a website",
-        type: "design",
-        price: 100,
-        picture: "web.jpg",
-    });
-    lessonsRef.add({
-        number: "003",
-        name: "Teaching you how to model your business",
-        type: "business",
-        price: 150,
-        picture: "guitar.jpg",
-    });
-    lessonsRef.add({
-        number: "004",
-        name: "Teaching you how to cook",
-        type: "cooking",
-        price: 200,
-        picture: "piano.jpg",
-    });
-}
-//writeLessons();
 
 function servicesQuery() {
     db.collection("services")
@@ -97,6 +68,7 @@ function servicesQuery() {
                 var desc = doc.data().description;
                 var person = doc.data().host;
 
+<<<<<<< HEAD
                 // construct the string for card
                 var codestring = '<br />' + '<div class="card">' +
                     '<img src="images/' + pic + '" class="card-img-top">' +
@@ -107,6 +79,19 @@ function servicesQuery() {
                     '</div>';
                 // append with jquery to DOM
                 $("#services-go-here").prepend(codestring);
+=======
+                    // construct the string for card
+                    var codestring = '<br />' + '<div class="card">' +
+                        '<img src="images/' + pic + '" class="card-img-top">' +
+                        '<div class="card-body">' +
+                        '<h5 id="product" class="card-title">' + title + '</h5>' +
+                        '<p class="card-text">' + desc + '</p>' +
+                        '<p class="card-text"><small class="text-muted">Hosted by '+ person + '</small></p>' +
+                        '</div>';
+                    // append with jquery to DOM
+                    $("#services-go-here").prepend(codestring);
+                })
+>>>>>>> b9e3c09f1fec9608379574c8ef984a5e11f65fba
             })
         })
 }
@@ -145,6 +130,7 @@ function getSearch() {
 }
 //getSearch();
 
+<<<<<<< HEAD
 function submit() {
     document.getElementById("submission").addEventListener('click', function () {
         var aboutMe = document.getElementById("about").value;
@@ -199,3 +185,29 @@ function getLessons() {
         })
 }
 //getLessons();
+=======
+function getServices() {
+        db.collection("services")
+            .orderBy("num", "desc")
+            .get()
+            .then(function (snap) {
+                snap.forEach(function (doc) {
+                    var n = doc.data().num;
+                    var pic = doc.data().picture;
+                    var title = doc.data().name;
+
+                    var newdom = '<div class="card">' + '<div class="card-header">'
+                        + '<b>Lesson Number</b> ' + n + '</div><div class="card-body">'
+                        + '<img src="images/' + pic + '"alt="..." class="img-thumbnail">'
+                        + title + '</div>';
+                    
+                    
+
+                    $("#services-go-here").prepend(newdom);
+                    
+                })
+            })
+    }
+//getServices();
+
+>>>>>>> b9e3c09f1fec9608379574c8ef984a5e11f65fba

@@ -40,9 +40,7 @@ It has the following subfolders and files:
     /outline_paid_black_24dp
     /outline_shopping_bag_black_24dp
     /piano.jpg
-    /translate.jpg
     /video.jpg
-    /web.jpg
 ├── scripts                  # Folder for scripts
     /firebase_api_connectfree.js                 
     /functions.js

@@ -29,6 +29,7 @@
         <nav class="navbar fixed-top navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="main.html">ConnectFree</a>
+                <a class="signout" href="index.html"><img src="images/outline_logout_black_24dp.png"></a>
             </div>
         </nav>
     </div>
@@ -37,23 +38,13 @@
         <div class="searchbar">
             <nav class="navbar navbar-light bg-light justify-content-between">
                 <a class="navbar-brand" style="margin-left: 15px;">Lessons Details</a>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Sort by
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Ascending order</a></li>
-                        <li><a class="dropdown-item" href="#">Descending order</a></li>
-                    </ul>
-                </div>
             </nav>
         </div>
 
         <h1 class="display-4">View your lessons</h1>
 
 
-        <div id="lessons-go-here"></div>
+        <div id="services-go-here"></div>
 
     </div>
 
@@ -88,7 +79,7 @@
         <!--------------------------------------------------------------------->
         <script src="scripts/functions.js"></script>
         <script>
-            getLessons();
+            getServices();
         </script>
 
 </body>
