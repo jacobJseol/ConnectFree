@@ -45,8 +45,10 @@ h1.display-4 {
 
 /* order.html */
 .container5 {
-    padding-top: 10%;
+    padding-top: 15%;
+    padding-bottom: 25%;
     text-align: center;
+    background-color: green;
 }
 
 /* profile.html */
@@ -55,6 +57,19 @@ h1.display-4 {
     padding-bottom: 25%;
     text-align: center;
     background-color: green;
+}
+
+input[type="text"]#exampleInputEmail1 {
+    height: 150px;
+}
+
+label {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#emailHelp {
+    color: wheat;
 }
 
 /* Generic */

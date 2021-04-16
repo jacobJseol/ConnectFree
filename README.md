@@ -21,22 +21,40 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
-├── profile.html             # profile.html by Jacob Seol      
-├── money.html               # money.html by Tonglin Zeng
+├── login.html               # login.html, to allow users to log in to ConnectFree
+├── main.html                # main.html, welcomes users and displays a list of classes
 ├── order.html               # order.html by Reynard Lo
+├── profile.html             # profile.html by Jacob Seol      
 └── README.md
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
+├── .firebase                # Folder for Firebase hosting
+    /hosting..cache
 ├── images                   # Folder for images
-    /blah.jpg                # 
+    /guitar.jpg              
+    /laptop.jpg
+    /macbook.png
+    /outline_account_circle_black_24dp
+    /outline_home_black_24dp
+    /outline_logout_black_24dp
+    /outline_paid_black_24dp
+    /outline_shopping_bag_black_24dp
+    /piano.jpg
+    /translate.jpg
+    /video.jpg
+    /web.jpg
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /firebase_api_connectfree.js                 
+    /functions.js
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /connectfree.css                
 
 Firebase hosting files: 
-├── .firebaserc...
+├── .firebaserc              # Part of hosting our app on Firestore
+├── 404.html                 # error page for when the link to our app does not work
+├── firebase.json            # firebase.json file of hosting our app on Firestore
+├── firestore.indexes.json   # firestore.indexes.json file of hosting our app on Firestore
+└── firebase.rules           # Firestore rules of hosting our app on Firestore
 
 
 ```

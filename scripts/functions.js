@@ -110,7 +110,7 @@ function getSearch() {
             })
     })
 }
-getSearch();
+//getSearch();
 
 function getServices() {
         db.collection("services")
